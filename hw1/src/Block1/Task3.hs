@@ -12,7 +12,7 @@ isEmpty Leaf = True
 isEmpty _ = False
 
 size :: Tree a -> Int
-size Leaf = 1
+size Leaf = 0
 size (Node value left right) = 1 + size left + size right
 
 find :: (Ord a) => Tree a -> a -> Tree a

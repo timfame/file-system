@@ -18,7 +18,7 @@ tested-with:         GHC == 8.0.1
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Block1.Task1, Block1.Task2
+  exposed-modules:     Block1.Task1, Block1.Task2, Block1.Task3, Block2.Task2
   ghc-options:         -Wall
   build-depends:       base >= 4.9 && < 5
   default-language:    Haskell2010
@@ -27,7 +27,7 @@ test-suite hw1-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Test.hs
-  other-modules:       Block1.Test1, Block1.Test2
+  other-modules:       Block1.Test1, Block1.Test2, Block1.Test3
   build-depends:       base,
                        tasty,
                        tasty-hspec,
