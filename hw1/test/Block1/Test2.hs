@@ -60,4 +60,20 @@ test =
       it "(17 :: Nat)  > (7 ::Nat)" $ ((17 :: Nat) > (7 :: Nat)) `shouldBe` True
       it "(17 :: Nat) <= (7 ::Nat)" $ ((17 :: Nat) <= (7 :: Nat)) `shouldBe` False
 
+    describe "fromInteger and toInteger" $ do
+      it "natToInteger (fromInteger 0)  = 0" $ (natToInteger (fromInteger 0)) `shouldBe` 0
+      it "natToInteger (fromInteger 1)  = 1" $ (natToInteger (fromInteger 1)) `shouldBe` 1
+      it "natToInteger (fromInteger 10) = 10" $ (natToInteger (fromInteger 10)) `shouldBe` 10
+
+    describe "divNat and modNat" $ do
+      it "divNat (10 :: Nat) (2 :: Nat) = (5 :: Nat)" $ (divNat (10 :: Nat) (2 :: Nat)) `shouldBe` (5 :: Nat)
+      it "divNat (10 :: Nat) (3 :: Nat) = (3 :: Nat)" $ (divNat (10 :: Nat) (3 :: Nat)) `shouldBe` (3 :: Nat)
+      it "divNat (10 :: Nat) (4 :: Nat) = (2 :: Nat)" $ (divNat (10 :: Nat) (4 :: Nat)) `shouldBe` (2 :: Nat)
+      it "divNat (10 :: Nat) (5 :: Nat) = (2 :: Nat)" $ (divNat (10 :: Nat) (5 :: Nat)) `shouldBe` (2 :: Nat)
+      it "modNat (10 :: Nat) (2 :: Nat) = Z" $ (modNat (10 :: Nat) (2 :: Nat)) `shouldBe` Z
+      it "modNat (10 :: Nat) (3 :: Nat) = (S Z)" $ (modNat (10 :: Nat) (3 :: Nat)) `shouldBe` (S Z)
+      it "modNat (10 :: Nat) (4 :: Nat) = (S (S Z))" $ (modNat (10 :: Nat) (4 :: Nat)) `shouldBe` (S (S Z))
+      it "modNat (10 :: Nat) (5 :: Nat) = Z" $ (modNat (10 :: Nat) (5 :: Nat)) `shouldBe` Z
+      it "(5 :: Nat) - ((2 :: Nat) * (divNat (5 :: Nat) (2 :: Nat))) = (modNat (5 :: Nat) (2 :: Nat))" $ (5 :: Nat) - ((2 :: Nat) * (divNat (5 :: Nat) (2 :: Nat))) `shouldBe` (modNat (5 :: Nat) (2 :: Nat))
+
   
