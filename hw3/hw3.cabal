@@ -18,10 +18,16 @@ tested-with:         GHC == 8.0.1
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Commands
+  exposed-modules:     Commands, Real
   ghc-options:         -Wall
   build-depends:       base >= 4.9 && < 5
                      , optparse-applicative
+                     , filepath
+                     , split
+                     , directory
+                     , mtl
+                     , transformers
+                     , time
   default-language:    Haskell2010
 
 executable hw3
