@@ -1,6 +1,8 @@
 module Main where
 
-import Lib
+import Task8 (Config (..), simulateCOVID)
 
 main :: IO ()
-main = someFunc
+main = do
+  simulateCOVID $ Config 0.3 3 2 5
+  
