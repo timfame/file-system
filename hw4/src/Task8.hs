@@ -228,3 +228,4 @@ simulateCOVID config = do
       ) 
       grid 
       (repeat True)
+  gridFrame result size
