@@ -1,5 +1,3 @@
-{-# LANGUAGE DeriveFunctor #-}
-
 module Task8
   ( Config (..) 
   , newSimulationGrid
@@ -51,7 +49,9 @@ newtype Grid a
   = Grid
   { unGrid :: ListZipper (ListZipper a)
   }
-  deriving (Functor)
+
+instance Functor Grid where
+  fmap f (Grid g) = Grid $ fmap f <$> g
 
 up :: Grid a -> Grid a
 up (Grid g) = Grid (listLeft g)
@@ -125,7 +125,8 @@ generateTwoCells :: Cell -> (Cell, Cell)
 generateTwoCells c = 
   let (g1, g2) = split $ gen c
       st       = status c
-  in (Cell st g1 0, Cell st g2 0)
+  in ( Cell st g1 0
+     , Cell st g2 0)
 
 newSimulationList :: StdGen -> ListZipper Cell
 newSimulationList g = 
