@@ -3,14 +3,10 @@
 module Real
   ( FSOutput (..)
   , FSActions (..)
-  , RealFS (..)
+  , RealFS
   ) where
 
-import Commands                   ( Command (..)
-                                  , getCommand)
-import Control.Monad              ( when)
 import Control.Monad.Except       ( ExceptT (..)
-                                  , catchError
                                   , throwError)
 import Control.Monad.IO.Class     ( liftIO)
 import Control.Monad.State.Lazy   ( State
@@ -19,10 +15,8 @@ import Control.Monad.State.Lazy   ( State
 import Control.Monad.Trans.Class  ( lift)
 import Control.Monad.Trans.Reader ( ReaderT (..)
                                   , ask)
-import Data.Char                  ( isSpace)
 import Data.IORef                 ( IORef
                                   , modifyIORef
-                                  , newIORef
                                   , readIORef)
 import Data.List                  ( intercalate)
 import Data.List.Split            ( splitOn)
@@ -32,7 +26,6 @@ import System.Directory           ( Permissions
                                   , createDirectory
                                   , doesFileExist
                                   , findFiles
-                                  , getCurrentDirectory
                                   , getFileSize
                                   , getModificationTime
                                   , getPermissions
@@ -41,8 +34,6 @@ import System.Directory           ( Permissions
                                   , removeFile)
 import System.FilePath            ( (</>))
 import System.FilePath.Posix      ( takeExtension)
-import System.IO                  ( hFlush
-                                  , stdout)
 
 -- | The `FSOutput` is a common data for possible outputs of all commands in FileSystem
 data FSOutput

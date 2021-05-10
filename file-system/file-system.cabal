@@ -3,7 +3,7 @@ version:             0.1.0.0
 synopsis:            Synopsis for task 3
 description:         File ssytem implemented on Haskell
 
-homepage:            https://github.com/timfame/file-system/tree/master/file-system#readme
+homepage:            https://github.com/timfame/file-system/blob/main/README.md
 license:             MIT
 license-file:        LICENSE
 author:              Timofey Gribanov
